@@ -4,27 +4,41 @@
     {
         static void Main(string[] args)
         {
-            int n = int.Parse(Console.ReadLine());
-            int[,] mz = new int[n, n];
+            string[] op = Console.ReadLine().Split(" ");
+            int m = int.Parse(op[0]);
+            int n = int.Parse(op[1]);
 
-            for (int i = 0; i < n; i++)
+            int[,] pmMz = new int[m, n];
+            int[,] scMz = new int[m, n];
+            int[,] fnMz = new int[m, n];
+
+            for (int i = 0; i < m; i++)
             {
-                string[] vet = Console.ReadLine().Split(" ");
+                string[] s = Console.ReadLine().Split(" ");
                 for (int j = 0; j < n; j++)
                 {
-                    mz[i, j] = int.Parse(vet[j]);
+                    pmMz[i,j] = int.Parse(s[j]);
                 }
             }
 
-            int soma = 0;
-            for (int i = 0; i < n; i++)
+            for (int i = 0; i < m; i++)
             {
-                for (int j = i + 1; j < n; j++)
+                string[] s = Console.ReadLine().Split(" ");
+                for (int j = 0; j < n; j++)
                 {
-                    soma = soma + mz[i, j];
+                    scMz[i, j] = int.Parse(s[j]);
                 }
             }
-            Console.WriteLine(soma);
+
+            for (int i = 0; i < m; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    fnMz[i, j] = pmMz[i, j] + scMz[i, j];
+                    Console.Write(fnMz[i, j] + " ");
+                }
+                Console.WriteLine();
+            }
         }
     }
 }
