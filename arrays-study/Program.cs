@@ -9,25 +9,22 @@
 
             for (int i = 0; i < n; i++)
             {
-                string[] s = Console.ReadLine().Split(" ");
+                string[] vet = Console.ReadLine().Split(" ");
                 for (int j = 0; j < n; j++)
                 {
-                    mz[i, j] = int.Parse(s[j]);
+                    mz[i, j] = int.Parse(vet[j]);
                 }
             }
 
+            int soma = 0;
             for (int i = 0; i < n; i++)
             {
-                int maior = mz[i, 0];
-                for (int j = 0; j < n; j++)
+                for (int j = i + 1; j < n; j++)
                 {
-                    if (mz[i, j] > maior)
-                    {
-                        maior = mz[i, j];
-                    }
+                    soma = soma + mz[i, j];
                 }
-                Console.WriteLine(maior);
             }
+            Console.WriteLine(soma);
         }
     }
 }
