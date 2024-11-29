@@ -4,32 +4,28 @@
     {
         static void Main(string[] args)
         {
-            int m, n;
-            string[] s = Console.ReadLine().Split(" ");
-            m = int.Parse(s[0]);
-            n = int.Parse(s[1]);
-            int[,] mz;
-            mz = new int[m, n];
+            int n = int.Parse(Console.ReadLine());
 
-            for (int i = 0; i < m; i++)
+            int[,] mz;
+            mz = new int[n, n];
+
+
+            for(int i = 0; i < n; i++)
             {
-                string[] ar = Console.ReadLine().Split(" ");
-                for(int j = 0; j < n; j++)
+                string[] s = Console.ReadLine().Split(" ");
+                for (int j = 0; j < n; j++)
                 {
-                    mz[i,j] = int.Parse(ar[j]);
+                    mz[i, j] = int.Parse(s[j]);
                 }
             }
-
-            Console.WriteLine("Números negativos: ");
-            for (int i = 0; i < m; i++)
+            for (int i = 0; i < n; i++)
             {
-                for(int j = 0;j < n; j++)
+                int cont = 0;
+                for (int j = 0; j < n; j++)
                 {
-                    if (mz[i,j] < 0)
-                    {
-                        Console.WriteLine(mz[i,j]);
-                    }
+                    cont = cont + mz[i, j];
                 }
+                Console.WriteLine(cont);
             }
         }
     }
